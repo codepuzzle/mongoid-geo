@@ -8,8 +8,8 @@ Gem::Specification.new do |s|
   s.version = "0.6.1"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
-  s.authors = [%q{Kristian Mandrup}]
-  s.date = %q{2011-05-31}
+  s.authors = ["Kristian Mandrup"]
+  s.date = %q{2011-07-11}
   s.description = %q{Makes it easy to use geo calculations with Mongoid}
   s.email = %q{kmandrup@gmail.com}
   s.extra_rdoc_files = [
@@ -18,28 +18,30 @@ Gem::Specification.new do |s|
   s.files = [
     ".document",
     ".rspec",
+    ".rvmrc",
     "Changelog.textile",
     "Gemfile",
     "MIT-LICENSE",
     "README.textile",
     "Rakefile",
     "VERSION",
+    "lib/mongoid/contexts/mongo.rb",
+    "lib/mongoid/criteria.rb",
+    "lib/mongoid/criterion/complex.rb",
+    "lib/mongoid/criterion/inclusion.rb",
+    "lib/mongoid/criterion/outer_operator.rb",
+    "lib/mongoid/criterion/twin_operators.rb",
+    "lib/mongoid/extentions/hash/criteria_helpers.rb",
+    "lib/mongoid/extentions/symbol/inflections.rb",
+    "lib/mongoid/finders.rb",
     "lib/mongoid/geo.rb",
-    "lib/mongoid/geo/criteria.rb",
-    "lib/mongoid/geo/criteria_helpers.rb",
-    "lib/mongoid/geo/criterion/complex.rb",
-    "lib/mongoid/geo/criterion/inclusion.rb",
-    "lib/mongoid/geo/criterion/outer_operator.rb",
-    "lib/mongoid/geo/criterion/twin_operators.rb",
     "lib/mongoid/geo/ext/geo_vectors.rb",
-    "lib/mongoid/geo/fields.rb",
     "lib/mongoid/geo/haversine.rb",
     "lib/mongoid/geo/index.rb",
-    "lib/mongoid/geo/inflections.rb",
-    "lib/mongoid/geo/near.rb",
     "lib/mongoid/geo/point.rb",
     "lib/mongoid/geo/unit.rb",
     "lib/mongoid_geo.rb",
+    "mongoid_geo-0.6.0.gem",
     "mongoid_geo.gemspec",
     "sandbox/haversine.rb",
     "sandbox/location.rb",
@@ -94,9 +96,9 @@ Gem::Specification.new do |s|
     "spec/spec_helper.rb"
   ]
   s.homepage = %q{http://github.com/kristianmandrup/mongoid_geo}
-  s.licenses = [%q{MIT}]
-  s.require_paths = [%q{lib}]
-  s.rubygems_version = %q{1.8.3}
+  s.licenses = ["MIT"]
+  s.require_paths = ["lib"]
+  s.rubygems_version = %q{1.6.2}
   s.summary = %q{Mongoid geo extensions with support for native Mongo DB calculations}
 
   if s.respond_to? :specification_version then
@@ -107,35 +109,38 @@ Gem::Specification.new do |s|
       s.add_runtime_dependency(%q<bson>, [">= 1.3"])
       s.add_runtime_dependency(%q<bson_ext>, [">= 1.3"])
       s.add_runtime_dependency(%q<activesupport>, [">= 3"])
+      s.add_runtime_dependency(%q<ffi>, ["= 1.0.8"])
       s.add_development_dependency(%q<rspec>, [">= 2.4"])
       s.add_development_dependency(%q<bundler>, [">= 1"])
       s.add_development_dependency(%q<jeweler>, [">= 1.5"])
       s.add_development_dependency(%q<rdoc>, [">= 3.6"])
       s.add_development_dependency(%q<geo_calc>, ["~> 0.6.1"])
-      s.add_development_dependency(%q<geo_vectors>, ["~> 0.5.1"])
+      s.add_development_dependency(%q<geo_vectors>, ["~> 0.5.3"])
     else
       s.add_dependency(%q<mongoid>, [">= 2"])
       s.add_dependency(%q<bson>, [">= 1.3"])
       s.add_dependency(%q<bson_ext>, [">= 1.3"])
       s.add_dependency(%q<activesupport>, [">= 3"])
+      s.add_dependency(%q<ffi>, ["= 1.0.8"])
       s.add_dependency(%q<rspec>, [">= 2.4"])
       s.add_dependency(%q<bundler>, [">= 1"])
       s.add_dependency(%q<jeweler>, [">= 1.5"])
       s.add_dependency(%q<rdoc>, [">= 3.6"])
       s.add_dependency(%q<geo_calc>, ["~> 0.6.1"])
-      s.add_dependency(%q<geo_vectors>, ["~> 0.5.1"])
+      s.add_dependency(%q<geo_vectors>, ["~> 0.5.3"])
     end
   else
     s.add_dependency(%q<mongoid>, [">= 2"])
     s.add_dependency(%q<bson>, [">= 1.3"])
     s.add_dependency(%q<bson_ext>, [">= 1.3"])
     s.add_dependency(%q<activesupport>, [">= 3"])
+    s.add_dependency(%q<ffi>, ["= 1.0.8"])
     s.add_dependency(%q<rspec>, [">= 2.4"])
     s.add_dependency(%q<bundler>, [">= 1"])
     s.add_dependency(%q<jeweler>, [">= 1.5"])
     s.add_dependency(%q<rdoc>, [">= 3.6"])
     s.add_dependency(%q<geo_calc>, ["~> 0.6.1"])
-    s.add_dependency(%q<geo_vectors>, ["~> 0.5.1"])
+    s.add_dependency(%q<geo_vectors>, ["~> 0.5.3"])
   end
 end
 
