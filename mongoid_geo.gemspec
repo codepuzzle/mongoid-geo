@@ -5,10 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{mongoid_geo}
-  s.version = "0.6.0"
+  s.version = "0.6.1"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
-  s.authors = ["Kristian Mandrup"]
+  s.authors = [%q{Kristian Mandrup}]
+  s.date = %q{2011-05-31}
   s.description = %q{Makes it easy to use geo calculations with Mongoid}
   s.email = %q{kmandrup@gmail.com}
   s.extra_rdoc_files = [
@@ -30,6 +31,7 @@ Gem::Specification.new do |s|
     "lib/mongoid/geo/criterion/inclusion.rb",
     "lib/mongoid/geo/criterion/outer_operator.rb",
     "lib/mongoid/geo/criterion/twin_operators.rb",
+    "lib/mongoid/geo/ext/geo_vectors.rb",
     "lib/mongoid/geo/fields.rb",
     "lib/mongoid/geo/haversine.rb",
     "lib/mongoid/geo/index.rb",
@@ -86,13 +88,15 @@ Gem::Specification.new do |s|
     "spec/mongoid/geo/geo_near_spec.rb",
     "spec/mongoid/geo/geo_near_to_model_spec.rb",
     "spec/mongoid/geo/geo_spherical_mode_spec.rb",
+    "spec/mongoid/geo/use_geo_calc_spec.rb",
+    "spec/mongoid/geo/use_geo_vectors_spec.rb",
     "spec/mongoid/spec_helper.rb",
     "spec/spec_helper.rb"
   ]
   s.homepage = %q{http://github.com/kristianmandrup/mongoid_geo}
-  s.licenses = ["MIT"]
-  s.require_paths = ["lib"]
-  s.rubygems_version = %q{1.7.2}
+  s.licenses = [%q{MIT}]
+  s.require_paths = [%q{lib}]
+  s.rubygems_version = %q{1.8.3}
   s.summary = %q{Mongoid geo extensions with support for native Mongo DB calculations}
 
   if s.respond_to? :specification_version then
@@ -107,6 +111,8 @@ Gem::Specification.new do |s|
       s.add_development_dependency(%q<bundler>, [">= 1"])
       s.add_development_dependency(%q<jeweler>, [">= 1.5"])
       s.add_development_dependency(%q<rdoc>, [">= 3.6"])
+      s.add_development_dependency(%q<geo_calc>, ["~> 0.6.1"])
+      s.add_development_dependency(%q<geo_vectors>, ["~> 0.5.1"])
     else
       s.add_dependency(%q<mongoid>, [">= 2"])
       s.add_dependency(%q<bson>, [">= 1.3"])
@@ -116,6 +122,8 @@ Gem::Specification.new do |s|
       s.add_dependency(%q<bundler>, [">= 1"])
       s.add_dependency(%q<jeweler>, [">= 1.5"])
       s.add_dependency(%q<rdoc>, [">= 3.6"])
+      s.add_dependency(%q<geo_calc>, ["~> 0.6.1"])
+      s.add_dependency(%q<geo_vectors>, ["~> 0.5.1"])
     end
   else
     s.add_dependency(%q<mongoid>, [">= 2"])
@@ -126,6 +134,8 @@ Gem::Specification.new do |s|
     s.add_dependency(%q<bundler>, [">= 1"])
     s.add_dependency(%q<jeweler>, [">= 1.5"])
     s.add_dependency(%q<rdoc>, [">= 3.6"])
+    s.add_dependency(%q<geo_calc>, ["~> 0.6.1"])
+    s.add_dependency(%q<geo_vectors>, ["~> 0.5.1"])
   end
 end
 

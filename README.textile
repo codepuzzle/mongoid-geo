@@ -10,6 +10,20 @@ A Geo extension for Mongoid.
 * Configure and create geo indexes
 * Calculate locations near a given point and return as criteria, sorted by distance
 
+h2. Status Update (May 31, 2011)
+
+Added support for using GeoPoint from "geo_calc":https://github.com/kristianmandrup/geo_calc to pass around location points. Also makes it easy to use GeoVectors from "geo_vectors":https://github.com/kristianmandrup/geo_vectors    
+
+Please see new specs _use_geo_calc_ and _use_geo_vectors_ in the /spec folder to see how this is used. Please help make sure the functionality works in the right way!
+Thanks :)
+
+h2. Status Update (May 25, 2011)
+* Fixed major bug which stored coordinate in [:lat, :lng]. This is incorrect. Coordinates must be stored with :lng as the first value in order for geospatial queries to work properly.
+- Excerpt from MongoDB GeoSpatial Indexing
+'The code assumes that you are using decimal degrees in (longitude, latitude) order. This is the same order used for the GeoJSON spec. 
+Using (latitude, longitude) will result in very incorrect results, but is often the ordering used elsewhere, so it is good to double-check.  
+The names you assign to a location object (if using an object and not an array) are completely ignored, only the ordering is detected.'
+
 h2. Status update (May 21, 2011)
 
 * Created alias methods such as _#near_sphere_ for _#nearSphere_ etc. to make the DSL much more 'rubyish'!
@@ -24,14 +38,6 @@ h2. Suggestions, improvements and bugs?
 
 Please raise issues or suggestions for improvements in the "Issues" section on github. 
 I would recommend that you try to branch the project, try to fix it yourself and make a pull request. 
-
-h3. Improvements and integrations (planned)
-
-I have recently created a new "geo_calc":https://github.com/kristianmandrup/geo_calc gem, with common geo-calculation functionality. 
-It also includes the concept of a GeoPoint. The GeoPoint implementation that is much more powerful than the current _#to_point_ implementation used in the _mongoid_geo_ gem. 
-Mongoid geo will have support for GeoPoints in the near future (June, 2011).
-
-I also plan to include support for "geo_vectors":https://github.com/kristianmandrup/geo_vectors, a gem under development.
 
 h3. Current integrations
 
